@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy – Guesser Space</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07091A;
+    --surface: #0F1229;
+    --border: rgba(255,255,255,0.07);
+    --accent: #7C6EF5;
+    --accent2: #E8609A;
+    --text: #E8EAF6;
+    --muted: #7B82A8;
+    --glow: rgba(124,110,245,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Starfield */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 75%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 50%, rgba(255,255,255,0.2) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 32px 100px;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 64px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 20px;
+    margin-bottom: 32px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  .logo-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+
+  h1 span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+  }
+
+  .meta a { color: var(--accent); text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 48px 0;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  section:nth-child(2) { animation-delay: 0.05s; }
+  section:nth-child(3) { animation-delay: 0.10s; }
+  section:nth-child(4) { animation-delay: 0.15s; }
+  section:nth-child(5) { animation-delay: 0.20s; }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  h2::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 22px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    flex-shrink: 0;
+  }
+
+  h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 24px 0 10px;
+  }
+
+  p { color: #A8AECE; margin-bottom: 14px; font-size: 0.95rem; }
+  p:last-child { margin-bottom: 0; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+  }
+
+  ul li {
+    color: #A8AECE;
+    font-size: 0.95rem;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  ul li:last-child { border-bottom: none; }
+
+  ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin: 16px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  thead tr {
+    background: rgba(124,110,245,0.08);
+  }
+
+  th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 12px 16px;
+    color: #A8AECE;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  /* Contact */
+  .contact-card {
+    background: linear-gradient(135deg, rgba(124,110,245,0.1), rgba(232,96,154,0.05));
+    border: 1px solid rgba(124,110,245,0.25);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .contact-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+
+  .contact-email {
+    display: inline-block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  footer a { color: var(--muted); margin: 0 12px; }
+  footer a:hover { color: var(--accent); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 20px 72px; }
+    h2 { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo-badge">
+      <span class="logo-dot"></span>
+      Apakhian Games
+    </div>
+    <h1>Privacy <span>Policy</span></h1>
+    <div class="meta">
+      <span>Effective date: March 27, 2026</span>
+      <span>·</span>
+      <span>App: Guesser Space</span>
+      <span>·</span>
+      <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Overview</h2>
+    <div class="card">
+      <p>Guesser Space is a brain-training game app. We are committed to collecting as little personal data as possible. This policy explains what we collect, why, and how it is handled.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Data We Collect</h2>
+    <h3>2.1 Stored only on your device</h3>
+    <p>The following information never leaves your device and is stored in local app storage (cleared when you uninstall):</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Data</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Optional player nickname</td><td>Personalise milestone messages. Never required.</td></tr>
+          <tr><td>Onboarding preferences</td><td>Personalise the app experience.</td></tr>
+          <tr><td>Language preference</td><td>Display the app in your chosen language.</td></tr>
+          <tr><td>First launch date</td><td>Calculate free trial days remaining.</td></tr>
+          <tr><td>Trial and referral bonus days</td><td>Track your earned trial period.</td></tr>
+          <tr><td>Referral code flags</td><td>Prevent duplicate referral rewards.</td></tr>
+          <tr><td>Subscription promo flag</td><td>Record whether a promo code was applied.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2.2 Sent to Firebase (Google)</h3>
+    <p>We use <strong>Firebase Anonymous Authentication</strong> to generate a stable, anonymous device identifier (UID). This UID is not linked to your name, email, or any personal identity — it is used solely to power the referral system.</p>
+    <p>We use <strong>Cloud Firestore</strong> to store referral codes. Each document contains only the anonymous UID of the code owner and a list of anonymous UIDs of devices that redeemed it. No names, emails, or personally identifiable information are ever stored.</p>
+    <p>Firebase is operated by Google LLC. <a href="https://policies.google.com/privacy" target="_blank">Google's privacy policy →</a></p>
+
+    <h3>2.3 Sent to RevenueCat</h3>
+    <p>We use <strong>RevenueCat</strong> to manage subscriptions. On purchase or restore, RevenueCat receives your app store receipt and a device identifier. It does not receive your name, email, or payment card details. <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat's privacy policy →</a></p>
+
+    <h3>2.4 Handled by app stores</h3>
+    <p>Purchases are processed entirely by Apple or Google. We do not receive or store payment information.</p>
+    <ul>
+      <li><a href="https://www.apple.com/legal/privacy" target="_blank">Apple Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data We Do NOT Collect</h2>
+    <div class="card">
+      <ul>
+        <li>Name, email address, or phone number</li>
+        <li>Precise or approximate location</li>
+        <li>Camera, microphone, or contacts access</li>
+        <li>Advertising identifiers (IDFA, GAID)</li>
+        <li>Browsing history or data from other apps</li>
+        <li>Any data from children beyond what is described above</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>How We Use Your Data</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Data</th><th>How It Is Used</th></tr></thead>
+        <tbody>
+          <tr><td>Anonymous Firebase UID</td><td>Identify a device in the referral system without linking it to a person.</td></tr>
+          <tr><td>Firestore referral records</td><td>Enforce one-redemption-per-device and the maximum redemption cap.</td></tr>
+          <tr><td>RevenueCat receipt</td><td>Verify active subscription status and unlock Pro features.</td></tr>
+          <tr><td>On-device preferences</td><td>Personalise your experience without any server involvement.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>We do not sell, rent, or share your data with advertisers or data brokers.</p>
+  </section>
+
+  <section>
+    <h2>Data Retention</h2>
+    <ul>
+      <li><strong>On-device data</strong> — retained until you uninstall the app.</li>
+      <li><strong>Firebase Anonymous UID</strong> — persists until you request deletion or Firebase cleans up stale accounts (typically after 30 days of inactivity).</li>
+      <li><strong>Firestore referral records</strong> — retained while the referral programme is active. Request deletion anytime at <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>.</li>
+      <li><strong>RevenueCat records</strong> — subject to RevenueCat's own retention policy.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Children's Privacy</h2>
+    <p>Guesser Space does not knowingly collect personal information from children under 13 (or the applicable age of digital consent in your country). The app requires no account creation and displays no advertising. If you believe a child has provided personal information, contact us at <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>.</p>
+  </section>
+
+  <section>
+    <h2>Your Rights (GDPR)</h2>
+    <p>If you are in the EEA, UK, or another jurisdiction with data protection laws, you may have the right to access, correct, delete, object to, or receive a portable copy of your data. Because most data is stored only on your device, uninstalling the app is the most effective way to exercise these rights. For Firebase or Firestore data, contact us and we will respond within 30 days.</p>
+  </section>
+
+  <section>
+    <h2>Security</h2>
+    <p>We use Firebase's encryption in transit (TLS) and server-side encryption at rest. The anonymous auth credential is secured by the platform keychain (iOS) or keystore (Android). No sensitive personal data is stored in plain text.</p>
+  </section>
+
+  <section>
+    <h2>Third-Party Services</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Service</th><th>Provider</th><th>Purpose</th><th>Policy</th></tr></thead>
+        <tbody>
+          <tr><td>Firebase Anonymous Auth</td><td>Google LLC</td><td>Anonymous device identity</td><td><a href="https://policies.google.com/privacy" target="_blank">Link</a></td></tr>
+          <tr><td>Cloud Firestore</td><td>Google LLC</td><td>Referral code storage</td><td><a href="https://policies.google.com/privacy" target="_blank">Link</a></td></tr>
+          <tr><td>RevenueCat</td><td>RevenueCat, Inc.</td><td>Subscription management</td><td><a href="https://www.revenuecat.com/privacy" target="_blank">Link</a></td></tr>
+          <tr><td>Google Play</td><td>Google LLC</td><td>Payment processing (Android)</td><td><a href="https://policies.google.com/privacy" target="_blank">Link</a></td></tr>
+          <tr><td>Apple App Store</td><td>Apple Inc.</td><td>Payment processing (iOS)</td><td><a href="https://www.apple.com/legal/privacy" target="_blank">Link</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will post the new version on this page and update the effective date above. Continued use of the app after changes take effect constitutes acceptance of the updated policy.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="contact-card">
+      <p>Questions or requests regarding this Privacy Policy?</p>
+      <a href="mailto:mdieska1@gmail.com" class="contact-email">mdieska1@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Apakhian Games · Guesser Space</p>
+    <p style="margin-top:8px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

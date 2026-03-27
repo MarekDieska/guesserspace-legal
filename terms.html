@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Use – Guesser Space</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07091A;
+    --surface: #0F1229;
+    --border: rgba(255,255,255,0.07);
+    --accent: #7C6EF5;
+    --accent2: #E8609A;
+    --text: #E8EAF6;
+    --muted: #7B82A8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 75%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 65% 90%, rgba(255,255,255,0.3) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 32px 100px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 64px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .logo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 20px;
+    margin-bottom: 32px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  .logo-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+
+  h1 span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 20px;
+  }
+
+  .meta a { color: var(--accent); text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 48px 0;
+  }
+
+  section {
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  section:nth-child(2) { animation-delay: 0.05s; }
+  section:nth-child(3) { animation-delay: 0.10s; }
+  section:nth-child(4) { animation-delay: 0.15s; }
+  section:nth-child(5) { animation-delay: 0.20s; }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  h2::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 22px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--accent2));
+    flex-shrink: 0;
+  }
+
+  h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 24px 0 10px;
+  }
+
+  p { color: #A8AECE; margin-bottom: 14px; font-size: 0.95rem; }
+  p:last-child { margin-bottom: 0; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+  }
+
+  ul li {
+    color: #A8AECE;
+    font-size: 0.95rem;
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  ul li:last-child { border-bottom: none; }
+
+  ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    margin: 16px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  thead tr { background: rgba(124,110,245,0.08); }
+
+  th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 12px 16px;
+    color: #A8AECE;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .warning-card {
+    background: rgba(232,96,154,0.06);
+    border: 1px solid rgba(232,96,154,0.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+  }
+
+  .warning-card p { font-size: 0.88rem; color: #C4809A; }
+
+  .contact-card {
+    background: linear-gradient(135deg, rgba(124,110,245,0.1), rgba(232,96,154,0.05));
+    border: 1px solid rgba(124,110,245,0.25);
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+  }
+
+  .contact-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+
+  .contact-email {
+    display: inline-block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .game-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    color: #A8AECE;
+  }
+
+  .game-chip strong {
+    display: block;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+  }
+
+  footer {
+    text-align: center;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  footer a { color: var(--muted); margin: 0 12px; }
+  footer a:hover { color: var(--accent); }
+
+  code {
+    background: rgba(124,110,245,0.12);
+    border: 1px solid rgba(124,110,245,0.2);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 0.88em;
+    color: var(--accent);
+    font-family: monospace;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 20px 72px; }
+    h2 { font-size: 1.2rem; }
+    .game-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo-badge">
+      <span class="logo-dot"></span>
+      Apakhian Games
+    </div>
+    <h1>Terms of <span>Use</span></h1>
+    <div class="meta">
+      <span>Effective date: March 27, 2026</span>
+      <span>·</span>
+      <span>App: Guesser Space</span>
+      <span>·</span>
+      <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Acceptance of Terms</h2>
+    <div class="card">
+      <p>By downloading, installing, or using Guesser Space ("the App"), you agree to be bound by these Terms of Use. If you do not agree, please do not use the App.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>About the App</h2>
+    <p>Guesser Space is a brain-training app offering daily games across multiple categories:</p>
+    <div class="game-grid">
+      <div class="game-chip"><strong>Geography</strong>Guess the Capital, Time Attack</div>
+      <div class="game-chip"><strong>History</strong>Timeline Order, History Duel</div>
+      <div class="game-chip"><strong>Puzzles</strong>Sudoku (Easy / Medium / Hard)</div>
+      <div class="game-chip"><strong>Puzzles</strong>Rocket Trail (Easy / Normal / Hard)</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Free Trial</h2>
+    <p>New users receive a <strong>7-day free trial</strong> granting full access to all games. The trial begins on the date of first launch. No payment information is required to start the trial. After the trial expires, access to Pro content is restricted until a subscription is purchased.</p>
+  </section>
+
+  <section>
+    <h2>Subscriptions</h2>
+    <h3>4.1 Plans</h3>
+    <p>Guesser Space offers the following paid subscription plans, billed through Apple App Store or Google Play:</p>
+    <ul>
+      <li><strong>Monthly</strong> — billed once per month.</li>
+      <li><strong>Annual</strong> — billed once per year at a lower effective monthly rate.</li>
+    </ul>
+    <p>Exact pricing is displayed in the app in your local currency.</p>
+
+    <h3>4.2 Billing and Renewal</h3>
+    <p>Subscriptions automatically renew at the end of each billing period unless cancelled at least 24 hours before the renewal date. Your payment method on file with Apple or Google will be charged upon purchase and at each renewal.</p>
+
+    <h3>4.3 Managing Your Subscription</h3>
+    <ul>
+      <li><strong>iOS:</strong> Settings → [Your Name] → Subscriptions</li>
+      <li><strong>Android:</strong> Google Play → Profile → Payments & subscriptions → Subscriptions</li>
+    </ul>
+    <p>Cancellation takes effect at the end of the current billing period. We do not offer refunds for partially unused periods except where required by law.</p>
+
+    <h3>4.4 Refunds</h3>
+    <p>Refund requests must be submitted directly to Apple or Google, as all payments are processed by their stores.</p>
+    <ul>
+      <li><a href="https://reportaproblem.apple.com" target="_blank">Apple refund requests →</a></li>
+      <li><a href="https://support.google.com/googleplay/answer/2479637" target="_blank">Google Play refund policy →</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Referral Programme</h2>
+    <h3>5.1 How It Works</h3>
+    <p>Each user is assigned a unique referral code (format: <code>GS-XXXXXX</code>). When another user enters your code, both parties may receive additional trial days or other benefits as described in the App.</p>
+
+    <h3>5.2 Rules</h3>
+    <ul>
+      <li>You may not redeem your own referral code.</li>
+      <li>Each device may redeem a referral code only once.</li>
+      <li>Each code may be redeemed by a limited number of devices (shown in the App).</li>
+      <li>Referral rewards are non-transferable and have no cash value.</li>
+    </ul>
+
+    <h3>5.3 Abuse</h3>
+    <p>We reserve the right to revoke referral codes and rewards if we detect abuse, including use of emulators, automated tools, or multiple device registrations intended to circumvent the one-redemption limit.</p>
+
+    <h3>5.4 Promo Codes</h3>
+    <p>From time to time we may issue promotional codes granting extended trial periods or Pro access. Promo codes are non-transferable, single-use (or limited-use as stated), and may be withdrawn at any time.</p>
+  </section>
+
+  <section>
+    <h2>Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Reverse-engineer, decompile, or disassemble the App.</li>
+      <li>Modify, adapt, or create derivative works of the App.</li>
+      <li>Use the App for any unlawful purpose.</li>
+      <li>Attempt to gain unauthorised access to any part of the App or its backend services.</li>
+      <li>Use automated scripts, bots, or tools to interact with the App.</li>
+      <li>Exploit bugs or vulnerabilities — please report them to <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a> instead.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Intellectual Property</h2>
+    <p>All content in the App — including game logic, puzzles, graphics, sounds, text, and the "Guesser Space" name and branding — is owned by Apakhian Games or its licensors and is protected by applicable intellectual property laws.</p>
+    <p>You are granted a limited, non-exclusive, non-transferable, revocable licence to use the App on your personal devices in accordance with these Terms.</p>
+  </section>
+
+  <section>
+    <h2>User-Provided Content</h2>
+    <p>The optional player nickname you enter during onboarding is stored only on your device and is never transmitted to our servers. You retain full ownership of any name you provide.</p>
+  </section>
+
+  <section>
+    <h2>Third-Party Services</h2>
+    <p>The App uses third-party services including Firebase (Google) and RevenueCat. Your use of those services is also subject to their respective terms:</p>
+    <ul>
+      <li><a href="https://policies.google.com/terms" target="_blank">Google Terms of Service</a></li>
+      <li><a href="https://www.revenuecat.com/terms" target="_blank">RevenueCat Terms</a></li>
+      <li><a href="https://play.google.com/about/play-terms/" target="_blank">Google Play Terms</a></li>
+      <li><a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank">Apple App Store Terms</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Disclaimer of Warranties</h2>
+    <div class="warning-card">
+      <p>The App is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind, express or implied. We do not warrant that the App will be uninterrupted or error-free, that defects will be corrected, or that the App or its servers are free of harmful components.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Limitation of Liability</h2>
+    <p>To the fullest extent permitted by applicable law, Apakhian Games and its affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of the App. In jurisdictions that do not allow certain liability exclusions, our liability is limited to the greatest extent permitted by law.</p>
+  </section>
+
+  <section>
+    <h2>Termination</h2>
+    <p>We reserve the right to suspend or terminate your access to the App at any time, without notice, if we reasonably believe you have violated these Terms. You may stop using the App at any time by uninstalling it. Active subscription billing is not affected by uninstalling — you must cancel through the App Store or Google Play.</p>
+  </section>
+
+  <section>
+    <h2>Changes to These Terms</h2>
+    <p>We may update these Terms from time to time. We will notify you of material changes by updating the effective date above. Continued use of the App after changes take effect constitutes your acceptance of the updated Terms.</p>
+  </section>
+
+  <section>
+    <h2>Governing Law</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of <strong>Slovakia</strong>, without regard to its conflict of law provisions. Any disputes shall be subject to the exclusive jurisdiction of the courts of Slovakia.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>Contact</h2>
+    <div class="contact-card">
+      <p>Questions about these Terms?</p>
+      <a href="mailto:mdieska1@gmail.com" class="contact-email">mdieska1@gmail.com</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Apakhian Games · Guesser Space</p>
+    <p style="margin-top:8px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
