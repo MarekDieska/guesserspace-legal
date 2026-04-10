@@ -1,361 +1,497 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy – Guesser Space</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+---
+layout: default
+title: Privacy Policy - Guesser Space
+permalink: /privacy
+---
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.75;
-    color: #1a1a1a;
-    background: #ffffff;
+  :root {
+    --doc-bg: #ffffff;
+    --doc-surface: #f7f8fa;
+    --doc-border: #d9dee7;
+    --doc-text: #18202a;
+    --doc-muted: #5b6675;
+    --doc-heading: #0f1722;
+    --doc-link: #0f5bd8;
+    --doc-accent: #e9f0ff;
   }
 
-  .wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 60px 32px 80px;
+  .legal-page {
+    max-width: 980px;
+    margin: 40px auto 72px;
+    padding: 0 20px;
+    color: var(--doc-text);
+    line-height: 1.7;
   }
 
-  header {
-    border-bottom: 2px solid #1a1a1a;
+  .legal-card {
+    background: var(--doc-bg);
+    border: 1px solid var(--doc-border);
+    border-radius: 18px;
+    padding: 40px 40px 28px;
+    box-shadow: 0 10px 30px rgba(15, 23, 34, 0.05);
+  }
+
+  .legal-header {
     padding-bottom: 24px;
-    margin-bottom: 40px;
+    border-bottom: 1px solid var(--doc-border);
+    margin-bottom: 28px;
   }
 
-  .org-name {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+  .legal-kicker {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #555;
-    margin-bottom: 12px;
+    color: var(--doc-muted);
+    margin: 0 0 10px;
   }
 
-  h1 {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 16px;
+  .legal-title {
+    margin: 0;
+    color: var(--doc-heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
   }
 
-  .meta-table { font-size: 13px; color: #444; border-collapse: collapse; }
-  .meta-table td { padding: 2px 16px 2px 0; }
-  .meta-table td:first-child { font-weight: 600; color: #1a1a1a; white-space: nowrap; }
-
-  section { margin-bottom: 40px; }
-
-  h2 {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #ddd;
+  .legal-subtitle {
+    margin: 14px 0 0;
+    color: var(--doc-muted);
+    max-width: 760px;
   }
 
-  h3 {
+  .legal-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .legal-meta div {
+    background: var(--doc-surface);
+    border: 1px solid var(--doc-border);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+
+  .legal-meta strong {
+    display: block;
+    color: var(--doc-heading);
     font-size: 0.82rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #1a4f8a;
-    margin: 20px 0 8px;
+    margin-bottom: 4px;
   }
 
-  p { color: #2d2d2d; margin-bottom: 12px; }
-  p:last-child { margin-bottom: 0; }
+  .legal-toc {
+    margin: 0 0 28px;
+    padding: 20px 22px;
+    background: var(--doc-surface);
+    border: 1px solid var(--doc-border);
+    border-radius: 16px;
+  }
 
-  a { color: #1a4f8a; }
-  a:hover { text-decoration: underline; }
-
-  ul {
-    list-style: none;
-    padding: 0;
+  .legal-toc h2 {
     margin: 0 0 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 3px;
+    font-size: 1rem;
   }
 
-  ul li {
-    padding: 7px 12px 7px 28px;
-    position: relative;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 0.93rem;
-    color: #2d2d2d;
+  .legal-toc ol {
+    margin: 0;
+    padding-left: 20px;
+    columns: 2;
+    column-gap: 36px;
   }
 
-  ul li:last-child { border-bottom: none; }
-
-  ul li::before {
-    content: '–';
-    position: absolute;
-    left: 12px;
-    color: #888;
+  .legal-section {
+    margin: 30px 0 0;
+    scroll-margin-top: 24px;
   }
 
-  .info-box {
-    background: #f5f7fa;
-    border: 1px solid #d0d7e2;
-    border-left: 3px solid #1a4f8a;
-    border-radius: 3px;
-    padding: 16px 20px;
-    margin: 12px 0;
+  .legal-section h2 {
+    margin: 0 0 12px;
+    font-size: 1.4rem;
+    color: var(--doc-heading);
   }
 
-  .info-box p { font-size: 0.93rem; }
+  .legal-section h3 {
+    margin: 20px 0 8px;
+    font-size: 1.02rem;
+    color: var(--doc-heading);
+  }
 
-  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  .legal-section p,
+  .legal-section ul,
+  .legal-section ol {
+    margin-top: 0;
+  }
 
-  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .legal-section ul,
+  .legal-section ol {
+    padding-left: 22px;
+  }
 
-  th {
-    background: #f0f0f0;
-    padding: 9px 13px;
+  .legal-section li + li {
+    margin-top: 6px;
+  }
+
+  .legal-callout {
+    background: var(--doc-accent);
+    border: 1px solid #cddcff;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin: 18px 0;
+  }
+
+  .legal-table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+
+  .legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  .legal-table th,
+  .legal-table td {
     text-align: left;
-    font-weight: 600;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #1a1a1a;
-    border: 1px solid #ccc;
-  }
-
-  td {
-    padding: 9px 13px;
-    border: 1px solid #ccc;
     vertical-align: top;
-    color: #2d2d2d;
+    padding: 12px 14px;
+    border: 1px solid var(--doc-border);
   }
 
-  tr:nth-child(even) td { background: #fafafa; }
-
-  code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.85em;
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    padding: 1px 5px;
+  .legal-table th {
+    background: var(--doc-surface);
+    color: var(--doc-heading);
+    font-weight: 700;
   }
 
-  .contact-box {
-    background: #f5f7fa;
-    border: 1px solid #d0d7e2;
-    border-radius: 3px;
-    padding: 20px 24px;
+  .legal-page a {
+    color: var(--doc-link);
+    text-decoration: none;
   }
 
-  .contact-box p { margin-bottom: 6px; }
-
-  hr.divider { border: none; border-top: 1px solid #e0e0e0; margin: 48px 0; }
-
-  footer {
-    font-size: 12px;
-    color: #888;
-    border-top: 1px solid #ddd;
-    padding-top: 24px;
-    text-align: center;
+  .legal-page a:hover {
+    text-decoration: underline;
   }
 
-  footer a { color: #888; margin: 0 8px; }
-  footer a:hover { color: #1a4f8a; }
+  @media (max-width: 760px) {
+    .legal-card {
+      padding: 26px 18px 20px;
+      border-radius: 14px;
+    }
 
-  @media (max-width: 600px) {
-    .wrap { padding: 32px 18px 60px; }
-    h1 { font-size: 1.6rem; }
+    .legal-toc ol {
+      columns: 1;
+    }
   }
 </style>
-</head>
-<body>
-<div class="wrap">
 
-  <header>
-    <p class="org-name">Apakhian Games</p>
-    <h1>Privacy Policy</h1>
-    <table class="meta-table">
-      <tr><td>Application</td><td>Guesser Space</td></tr>
-      <tr><td>Effective date</td><td>April 6, 2026</td></tr>
-      <tr><td>Contact</td><td><a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a></td></tr>
-    </table>
-  </header>
+<div class="legal-page">
+  <article class="legal-card">
+    <header class="legal-header">
+      <p class="legal-kicker">Guesser Space Legal</p>
+      <h1 class="legal-title">Privacy Policy</h1>
+      <p class="legal-subtitle">
+        This Privacy Policy explains what data Guesser Space stores, what data is sent to third-party
+        services, why that happens, and what choices you have.
+      </p>
+      <div class="legal-meta">
+        <div>
+          <strong>Effective Date</strong>
+          <span>April 10, 2026</span>
+        </div>
+        <div>
+          <strong>Developer</strong>
+          <span>Apakhian Games</span>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <span><a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a></span>
+        </div>
+      </div>
+    </header>
 
-  <section>
-    <h2>1. Overview</h2>
-    <div class="info-box">
-      <p>Guesser Space is a brain-training game application developed by Apakhian Games. We are committed to collecting as little personal data as necessary to operate the application. This Privacy Policy explains what data we collect, why, and how it is handled. Most data is stored exclusively on your device and is never transmitted to our servers.</p>
-    </div>
-  </section>
+    <nav class="legal-toc" aria-label="Table of contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#data-collected">Data We Collect and Process</a></li>
+        <li><a href="#data-not-collected">Data We Do Not Intentionally Collect</a></li>
+        <li><a href="#data-use">How We Use Data</a></li>
+        <li><a href="#sharing">Sharing and Third Parties</a></li>
+        <li><a href="#retention">Data Retention</a></li>
+        <li><a href="#rights">Your Choices and Rights</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#international">International Processing</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
 
-  <section>
-    <h2>2. Data We Collect</h2>
+    <section class="legal-section" id="overview">
+      <h2>1. Overview</h2>
+      <p>
+        Guesser Space is a brain-training game app. We try to collect and transmit as little personal
+        data as possible. However, some features of the app, such as subscriptions, rankings, referrals,
+        and optional Google sign-in, require third-party services.
+      </p>
+    </section>
 
-    <h3>2.1 Stored only on your device</h3>
-    <p>The following data is stored in local application storage. It is never transmitted to our servers and is deleted when you uninstall the application.</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Data item</th><th>Purpose</th></tr></thead>
-        <tbody>
-          <tr><td>Optional player nickname</td><td>Personalise leaderboard display. Never required.</td></tr>
-          <tr><td>Onboarding completion flag</td><td>Remember that the introductory screens have been completed.</td></tr>
-          <tr><td>Language preference</td><td>Display the application in your chosen language.</td></tr>
-          <tr><td>Theme preference</td><td>Remember your selected light or dark theme.</td></tr>
-          <tr><td>First launch timestamp</td><td>Calculate free trial days remaining (offline fallback only).</td></tr>
-          <tr><td>Referral bonus days</td><td>Track earned trial extensions from referral codes.</td></tr>
-          <tr><td>Referral redemption flag</td><td>Prevent duplicate referral reward claims on the same device.</td></tr>
-          <tr><td>Subscription promotional flag</td><td>Record whether a promotional code has been applied.</td></tr>
-          <tr><td>Game progress and high scores</td><td>Save local game state and personal records.</td></tr>
-          <tr><td>Daily game state</td><td>Restore in-progress daily game within the same day.</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <section class="legal-section" id="data-collected">
+      <h2>2. Data We Collect and Process</h2>
 
-    <h3>2.2 Firebase Authentication (Google LLC)</h3>
-    <p>We use <strong>Firebase Anonymous Authentication</strong> to assign each new installation a stable, anonymous device identifier (UID). This UID is not linked to any personal identity and is used solely to power the referral system and leaderboard.</p>
-    <p>Users may optionally link their <strong>Google account</strong> to back up and restore progress across devices. If you choose to link a Google account, Firebase Authentication receives your Google email address, display name, and profile picture URL from Google. This information is used only to authenticate your account and associate your leaderboard data with your Google identity. It is not shared with third parties beyond the Google and Firebase infrastructure described in this policy.</p>
-    <p>Firebase is operated by Google LLC. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy →</a></p>
+      <h3>2.1 Data stored only on your device</h3>
+      <div class="legal-table-wrap">
+        <table class="legal-table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Optional player nickname</td>
+              <td>Displayed in the app and used for local personalization.</td>
+            </tr>
+            <tr>
+              <td>Onboarding preferences</td>
+              <td>Used to personalize the app experience.</td>
+            </tr>
+            <tr>
+              <td>Language and theme preferences</td>
+              <td>Used to display the app according to your settings.</td>
+            </tr>
+            <tr>
+              <td>Gameplay progress, streaks, unlocked achievements, and local puzzle state</td>
+              <td>Used to save progress and game history on your device.</td>
+            </tr>
+            <tr>
+              <td>Certain local subscription UI flags</td>
+              <td>Used to remember whether subscription messages have already been shown.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Local app data is generally removed when you uninstall the app, except where platform services
+        retain credentials or identifiers as described below.
+      </p>
 
-    <h3>2.3 Cloud Firestore (Google LLC)</h3>
-    <p>We use Cloud Firestore to store the following data on our servers:</p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Collection</th><th>Data stored</th><th>Purpose</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><code>rankings/{uid}</code></td>
-            <td>Firebase UID, optional player name, total XP, per-game high scores, timestamp</td>
-            <td>Global leaderboard and cross-device progress backup/restore</td>
-          </tr>
-          <tr>
-            <td><code>usernames/{username}</code></td>
-            <td>Chosen display name, linked Firebase UID, timestamp</td>
-            <td>Enforce unique display names on the leaderboard</td>
-          </tr>
-          <tr>
-            <td><code>referrals/{code}</code></td>
-            <td>Code owner UID, list of redeeming UIDs, redemption count</td>
-            <td>Referral system — enforce limits and award bonus trial days</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p>All UIDs stored are Firebase-issued identifiers. If you have not linked a Google account, your UID is fully anonymous. Leaderboard display names are optional and always chosen by you.</p>
+      <h3>2.2 Firebase Authentication</h3>
+      <p>We use <strong>Firebase Authentication</strong> provided by Google LLC.</p>
+      <ul>
+        <li><strong>Anonymous Authentication</strong>, to create a persistent app user ID used for rankings, referrals, and subscription identity mapping.</li>
+        <li><strong>Google Sign-In</strong>, if you choose to link or sign in with your Google account.</li>
+      </ul>
+      <p>
+        When you use Google Sign-In, Google and Firebase may process information associated with your
+        Google account, such as your Google account identifier and authentication tokens, in order to
+        authenticate you. We do not intentionally request your contacts, calendar, photos, or other
+        unrelated Google account data.
+      </p>
+      <p>
+        Google's privacy policy is available at
+        <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>.
+      </p>
 
-    <h3>2.4 RevenueCat, Inc.</h3>
-    <p>We use <strong>RevenueCat</strong> to manage in-app subscriptions. On purchase or restore, RevenueCat receives your app store receipt and a Firebase identifier. RevenueCat does not receive your name, email address, or payment card details. Subscription status is used solely to unlock Pro features within the application. <a href="https://www.revenuecat.com/privacy" target="_blank">RevenueCat Privacy Policy →</a></p>
+      <h3>2.3 Cloud Firestore</h3>
+      <p>We use <strong>Cloud Firestore</strong> provided by Google LLC to store limited gameplay-related cloud data.</p>
+      <ul>
+        <li>your Firebase user ID,</li>
+        <li>your optional player nickname,</li>
+        <li>XP and level information,</li>
+        <li>leaderboard and ranking scores,</li>
+        <li>referral code records and referral redemption history,</li>
+        <li>timestamps such as update or redemption times.</li>
+      </ul>
+      <p>We do not use Firestore to store your payment card details.</p>
 
-    <h3>2.5 Payment processor — Google Play</h3>
-    <p>All payments are processed exclusively by Google LLC through Google Play. We do not receive or store payment card information. <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy →</a></p>
-  </section>
+      <h3>2.4 Cloud Functions</h3>
+      <p>
+        We use <strong>Firebase Cloud Functions</strong> to process referral-code and promo-code redemption securely.
+        When you redeem a referral or promo code, the submitted code and your Firebase user ID are processed
+        so the app can validate the code, prevent abuse, and grant the related benefit through RevenueCat.
+      </p>
 
-  <section>
-    <h2>3. Data We Do Not Collect</h2>
-    <ul>
-      <li>Precise or approximate location data</li>
-      <li>Access to camera, microphone, or contacts</li>
-      <li>Advertising identifiers (IDFA, GAID)</li>
-      <li>Browsing history or data from other applications</li>
-      <li>Sensitive personal data (health, financial, or biometric data)</li>
-      <li>Any data from children beyond what is described in this policy</li>
-    </ul>
-  </section>
+      <h3>2.5 RevenueCat</h3>
+      <p>We use <strong>RevenueCat</strong> to manage subscriptions, store trials, restores, and promotional entitlements.</p>
+      <ul>
+        <li>your app user ID used by the app for subscription identity,</li>
+        <li>purchase or subscription receipt information from Apple or Google,</li>
+        <li>subscription status, entitlement state, and expiration dates,</li>
+        <li>technical identifiers needed for subscription processing.</li>
+      </ul>
+      <p>
+        RevenueCat's privacy policy is available at
+        <a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a>.
+      </p>
 
-  <section>
-    <h2>4. How We Use Your Data</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Data</th><th>How it is used</th></tr></thead>
-        <tbody>
-          <tr><td>Anonymous Firebase UID</td><td>Identify a device in the referral system without linking it to a person.</td></tr>
-          <tr><td>Google account information (if linked)</td><td>Authenticate account and associate leaderboard progress across devices.</td></tr>
-          <tr><td>Firestore rankings and usernames</td><td>Display the global leaderboard and enable progress backup and restore.</td></tr>
-          <tr><td>Firestore referral records</td><td>Enforce one-redemption-per-device and the maximum redemption cap.</td></tr>
-          <tr><td>RevenueCat receipt data</td><td>Verify active subscription status and unlock Pro features.</td></tr>
-          <tr><td>On-device preferences and scores</td><td>Personalise your experience without any server involvement.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>We do not sell, rent, or share your data with advertisers or data brokers.</p>
-  </section>
+      <h3>2.6 Apple App Store and Google Play</h3>
+      <p>
+        Payments are processed by Apple or Google, not by us. We do not receive your full payment card
+        number or billing credentials.
+      </p>
+      <ul>
+        <li><a href="https://www.apple.com/legal/privacy">Apple Privacy Policy</a></li>
+        <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>5. Data Retention</h2>
-    <ul>
-      <li><strong>On-device data</strong> — retained until you uninstall the application.</li>
-      <li><strong>Firebase Anonymous UID</strong> — persists until you request deletion or Firebase automatically removes stale anonymous accounts (typically 30 days of inactivity for anonymous-only accounts).</li>
-      <li><strong>Firestore rankings and usernames</strong> — retained while your account is active. You may request deletion at any time by contacting us.</li>
-      <li><strong>Firestore referral records</strong> — retained while the referral programme is active. Request deletion at <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>.</li>
-      <li><strong>RevenueCat records</strong> — subject to RevenueCat's own retention policy.</li>
-    </ul>
-  </section>
+    <section class="legal-section" id="data-not-collected">
+      <h2>3. Data We Do Not Intentionally Collect</h2>
+      <ul>
+        <li>your phone number,</li>
+        <li>your contacts,</li>
+        <li>your precise location,</li>
+        <li>microphone or camera recordings,</li>
+        <li>advertising identifiers for ad targeting,</li>
+        <li>personal data from other apps on your device.</li>
+      </ul>
+      <p>The app does not display third-party advertising.</p>
+    </section>
 
-  <section>
-    <h2>6. Children's Privacy</h2>
-    <p>Guesser Space does not knowingly collect personal information from children under 13 (or the applicable age of digital consent in your jurisdiction). The application requires no account creation and displays no advertising. If you believe a child has provided personal information, please contact us at <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a> and we will take prompt steps to delete it.</p>
-  </section>
+    <section class="legal-section" id="data-use">
+      <h2>4. How We Use Data</h2>
+      <ul>
+        <li>authentication and account linking,</li>
+        <li>saving and restoring progress,</li>
+        <li>subscriptions, trials, and entitlement checks,</li>
+        <li>referral and promo code validation,</li>
+        <li>leaderboards and score ranking,</li>
+        <li>localization and app personalization,</li>
+        <li>abuse prevention and service integrity.</li>
+      </ul>
+      <p>We do not sell your personal data to data brokers or advertisers.</p>
+    </section>
 
-  <section>
-    <h2>7. Your Rights</h2>
-    <p>Depending on your jurisdiction (including the European Economic Area and the United Kingdom under the GDPR), you may have the right to access, rectify, erase, object to processing of, or receive a portable copy of your personal data. Because most data is stored only on your device, uninstalling the application is the most direct means of exercising deletion rights for on-device data. For data held in Firestore, contact us at <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a> and we will respond within 30 days.</p>
-  </section>
+    <section class="legal-section" id="sharing">
+      <h2>5. Sharing and Third Parties</h2>
+      <div class="legal-table-wrap">
+        <table class="legal-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Provider</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Firebase Authentication</td>
+              <td>Google LLC</td>
+              <td>Anonymous auth and optional Google sign-in</td>
+            </tr>
+            <tr>
+              <td>Cloud Firestore</td>
+              <td>Google LLC</td>
+              <td>Rankings, player profile fields, referrals</td>
+            </tr>
+            <tr>
+              <td>Firebase Cloud Functions</td>
+              <td>Google LLC</td>
+              <td>Referral and promo validation</td>
+            </tr>
+            <tr>
+              <td>RevenueCat</td>
+              <td>RevenueCat, Inc.</td>
+              <td>Subscription and entitlement management</td>
+            </tr>
+            <tr>
+              <td>Apple App Store / Google Play</td>
+              <td>Apple Inc. / Google LLC</td>
+              <td>Billing and purchase processing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        We may also disclose data if required to comply with applicable law, legal process, or enforceable
+        governmental requests.
+      </p>
+    </section>
 
-  <section>
-    <h2>8. Security</h2>
-    <p>All data transmitted to Firebase and RevenueCat is encrypted in transit using TLS. Firebase applies server-side encryption at rest for all stored data. The Firebase authentication credential is secured by the Android keystore. No sensitive personal data is stored in plain text by the application.</p>
-  </section>
+    <section class="legal-section" id="retention">
+      <h2>6. Data Retention</h2>
+      <ul>
+        <li><strong>Local device data:</strong> until removed by you, app reset, or app uninstall.</li>
+        <li><strong>Firebase Authentication data:</strong> until the account or auth record is removed, subject to Google/Firebase retention rules.</li>
+        <li><strong>Firestore ranking and referral records:</strong> until deleted by us, by service lifecycle changes, or upon a valid deletion request where feasible.</li>
+        <li><strong>RevenueCat subscription records:</strong> according to RevenueCat's own retention practices.</li>
+      </ul>
+      <p>
+        Some third-party services may retain backup, security, accounting, or fraud-prevention records for
+        longer where permitted or required by law.
+      </p>
+    </section>
 
-  <section>
-    <h2>9. Third-Party Services</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Service</th><th>Provider</th><th>Purpose</th><th>Policy</th></tr></thead>
-        <tbody>
-          <tr><td>Firebase Authentication</td><td>Google LLC</td><td>Anonymous and Google account identity</td><td><a href="https://policies.google.com/privacy" target="_blank">Link</a></td></tr>
-          <tr><td>Cloud Firestore</td><td>Google LLC</td><td>Leaderboard, referrals, display names</td><td><a href="https://policies.google.com/privacy" target="_blank">Link</a></td></tr>
-          <tr><td>Google Sign-In</td><td>Google LLC</td><td>Optional Google account linking</td><td><a href="https://policies.google.com/privacy" target="_blank">Link</a></td></tr>
-          <tr><td>RevenueCat</td><td>RevenueCat, Inc.</td><td>Subscription management</td><td><a href="https://www.revenuecat.com/privacy" target="_blank">Link</a></td></tr>
-          <tr><td>Google Play</td><td>Google LLC</td><td>Payment processing</td><td><a href="https://policies.google.com/privacy" target="_blank">Link</a></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+    <section class="legal-section" id="rights">
+      <h2>7. Your Choices and Rights</h2>
+      <p>
+        Depending on your jurisdiction, you may have rights including access, correction, deletion,
+        restriction, objection, and data portability.
+      </p>
+      <div class="legal-callout">
+        Because part of your data is stored only on your device, you can delete that local data by uninstalling the app.
+      </div>
+      <p>
+        For cloud-stored data, you may contact us at
+        <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a> and request deletion of data associated
+        with your app account. To help us identify your record, please include the app name, your device platform,
+        your player nickname if you set one, and, if relevant, the approximate date of use or purchase.
+      </p>
+      <ul>
+        <li>Deleting the app does not automatically cancel an active subscription.</li>
+        <li>Signing out of Google does not itself guarantee deletion of cloud-stored ranking or referral records.</li>
+        <li>Subscription and billing records may also be retained by Apple, Google, or RevenueCat under their own obligations.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>10. Third-Party Data Attribution</h2>
-    <p>The history events database used in the History Order and History Duel games is made available under the <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank">Open Database License (ODbL) v1.0</a>. The database contents are licensed under the <a href="https://opendatacommons.org/licenses/dbcl/1-0/" target="_blank">Database Contents License (DbCL) v1.0</a>.</p>
-  </section>
+    <section class="legal-section" id="children">
+      <h2>8. Children's Privacy</h2>
+      <p>
+        Guesser Space is not directed toward children under the age at which consent is required in the
+        applicable jurisdiction, unless permitted by local law and platform policy.
+      </p>
+      <p>
+        If you believe a child has provided personal data through the app in a way that should be removed,
+        contact us at <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>.
+      </p>
+    </section>
 
-  <section>
-    <h2>11. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. The revised version will be posted on this page with an updated effective date. Continued use of the application after changes take effect constitutes acceptance of the updated policy.</p>
-  </section>
+    <section class="legal-section" id="security">
+      <h2>9. Security</h2>
+      <p>
+        We rely on the security features of our service providers, including encryption in transit and
+        access controls provided by Firebase, Google, Apple, and RevenueCat. No system can be guaranteed
+        to be completely secure, but we take reasonable steps to minimize unnecessary data collection and exposure.
+      </p>
+    </section>
 
-  <hr class="divider">
+    <section class="legal-section" id="international">
+      <h2>10. International Processing</h2>
+      <p>
+        Because our service providers operate internationally, your data may be processed on servers located
+        outside your country of residence, subject to the safeguards and contractual commitments of those providers.
+      </p>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <p>For questions, data access requests, or deletion requests regarding this Privacy Policy, please contact:</p>
-      <p><strong>Apakhian Games</strong><br>
-      Email: <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a></p>
-    </div>
-  </section>
+    <section class="legal-section" id="changes">
+      <h2>11. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. If we do, we will update the effective date on
+        this page. Continued use of the app after the updated policy becomes effective means you accept the revised version.
+      </p>
+    </section>
 
-  <footer>
-    <p>© 2026 Apakhian Games &nbsp;·&nbsp; Guesser Space</p>
-    <p style="margin-top:6px;">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-    </p>
-  </footer>
-
+    <section class="legal-section" id="contact">
+      <h2>12. Contact</h2>
+      <p>
+        If you have questions or requests regarding this Privacy Policy, contact
+        <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>.
+      </p>
+    </section>
+  </article>
 </div>
-</body>
-</html>

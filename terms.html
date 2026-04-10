@@ -1,368 +1,423 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Use – Guesser Space</title>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+---
+layout: default
+title: Terms of Use - Guesser Space
+permalink: /terms
+---
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.75;
-    color: #1a1a1a;
-    background: #ffffff;
+  :root {
+    --doc-bg: #ffffff;
+    --doc-surface: #f7f8fa;
+    --doc-border: #d9dee7;
+    --doc-text: #18202a;
+    --doc-muted: #5b6675;
+    --doc-heading: #0f1722;
+    --doc-link: #0f5bd8;
   }
 
-  .wrap {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 60px 32px 80px;
+  .legal-page {
+    max-width: 980px;
+    margin: 40px auto 72px;
+    padding: 0 20px;
+    color: var(--doc-text);
+    line-height: 1.7;
   }
 
-  header {
-    border-bottom: 2px solid #1a1a1a;
+  .legal-card {
+    background: var(--doc-bg);
+    border: 1px solid var(--doc-border);
+    border-radius: 18px;
+    padding: 40px 40px 28px;
+    box-shadow: 0 10px 30px rgba(15, 23, 34, 0.05);
+  }
+
+  .legal-header {
     padding-bottom: 24px;
-    margin-bottom: 40px;
+    border-bottom: 1px solid var(--doc-border);
+    margin-bottom: 28px;
   }
 
-  .org-name {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
+  .legal-kicker {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #555;
-    margin-bottom: 12px;
+    color: var(--doc-muted);
+    margin: 0 0 10px;
   }
 
-  h1 {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 16px;
+  .legal-title {
+    margin: 0;
+    color: var(--doc-heading);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.15;
   }
 
-  .meta-table { font-size: 13px; color: #444; border-collapse: collapse; }
-  .meta-table td { padding: 2px 16px 2px 0; }
-  .meta-table td:first-child { font-weight: 600; color: #1a1a1a; white-space: nowrap; }
-
-  section { margin-bottom: 40px; }
-
-  h2 {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #ddd;
+  .legal-subtitle {
+    margin: 14px 0 0;
+    color: var(--doc-muted);
+    max-width: 760px;
   }
 
-  h3 {
+  .legal-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .legal-meta div {
+    background: var(--doc-surface);
+    border: 1px solid var(--doc-border);
+    border-radius: 12px;
+    padding: 12px 14px;
+  }
+
+  .legal-meta strong {
+    display: block;
+    color: var(--doc-heading);
     font-size: 0.82rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #1a4f8a;
-    margin: 20px 0 8px;
+    margin-bottom: 4px;
   }
 
-  p { color: #2d2d2d; margin-bottom: 12px; }
-  p:last-child { margin-bottom: 0; }
+  .legal-toc {
+    margin: 0 0 28px;
+    padding: 20px 22px;
+    background: var(--doc-surface);
+    border: 1px solid var(--doc-border);
+    border-radius: 16px;
+  }
 
-  a { color: #1a4f8a; }
-  a:hover { text-decoration: underline; }
-
-  ul {
-    list-style: none;
-    padding: 0;
+  .legal-toc h2 {
     margin: 0 0 12px;
-    border: 1px solid #e0e0e0;
-    border-radius: 3px;
+    font-size: 1rem;
   }
 
-  ul li {
-    padding: 7px 12px 7px 28px;
-    position: relative;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 0.93rem;
-    color: #2d2d2d;
+  .legal-toc ol {
+    margin: 0;
+    padding-left: 20px;
+    columns: 2;
+    column-gap: 36px;
   }
 
-  ul li:last-child { border-bottom: none; }
-
-  ul li::before {
-    content: '–';
-    position: absolute;
-    left: 12px;
-    color: #888;
+  .legal-section {
+    margin: 30px 0 0;
+    scroll-margin-top: 24px;
   }
 
-  .info-box {
-    background: #f5f7fa;
-    border: 1px solid #d0d7e2;
-    border-left: 3px solid #1a4f8a;
-    border-radius: 3px;
-    padding: 16px 20px;
-    margin: 12px 0;
+  .legal-section h2 {
+    margin: 0 0 12px;
+    font-size: 1.4rem;
+    color: var(--doc-heading);
   }
 
-  .info-box p { font-size: 0.93rem; }
-
-  .warning-box {
-    background: #fdf5f5;
-    border: 1px solid #e0c0c0;
-    border-left: 3px solid #b94040;
-    border-radius: 3px;
-    padding: 16px 20px;
-    margin: 12px 0;
+  .legal-section h3 {
+    margin: 20px 0 8px;
+    font-size: 1.02rem;
+    color: var(--doc-heading);
   }
 
-  .warning-box p { font-size: 0.93rem; color: #5a2020; }
-
-  .table-wrap { overflow-x: auto; margin: 12px 0; }
-
-  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
-
-  th {
-    background: #f0f0f0;
-    padding: 9px 13px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #1a1a1a;
-    border: 1px solid #ccc;
+  .legal-section p,
+  .legal-section ul {
+    margin-top: 0;
   }
 
-  td {
-    padding: 9px 13px;
-    border: 1px solid #ccc;
-    vertical-align: top;
-    color: #2d2d2d;
+  .legal-section ul {
+    padding-left: 22px;
   }
 
-  tr:nth-child(even) td { background: #fafafa; }
-
-  code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.85em;
-    background: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    padding: 1px 5px;
+  .legal-section li + li {
+    margin-top: 6px;
   }
 
-  .game-table { margin: 12px 0; }
-
-  .contact-box {
-    background: #f5f7fa;
-    border: 1px solid #d0d7e2;
-    border-radius: 3px;
-    padding: 20px 24px;
+  .legal-note {
+    background: var(--doc-surface);
+    border: 1px solid var(--doc-border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin: 18px 0;
   }
 
-  .contact-box p { margin-bottom: 6px; }
-
-  hr.divider { border: none; border-top: 1px solid #e0e0e0; margin: 48px 0; }
-
-  footer {
-    font-size: 12px;
-    color: #888;
-    border-top: 1px solid #ddd;
-    padding-top: 24px;
-    text-align: center;
+  .legal-page a {
+    color: var(--doc-link);
+    text-decoration: none;
   }
 
-  footer a { color: #888; margin: 0 8px; }
-  footer a:hover { color: #1a4f8a; }
+  .legal-page a:hover {
+    text-decoration: underline;
+  }
 
-  @media (max-width: 600px) {
-    .wrap { padding: 32px 18px 60px; }
-    h1 { font-size: 1.6rem; }
+  @media (max-width: 760px) {
+    .legal-card {
+      padding: 26px 18px 20px;
+      border-radius: 14px;
+    }
+
+    .legal-toc ol {
+      columns: 1;
+    }
   }
 </style>
-</head>
-<body>
-<div class="wrap">
 
-  <header>
-    <p class="org-name">Apakhian Games</p>
-    <h1>Terms of Use</h1>
-    <table class="meta-table">
-      <tr><td>Application</td><td>Guesser Space</td></tr>
-      <tr><td>Effective date</td><td>April 6, 2026</td></tr>
-      <tr><td>Governing law</td><td>Slovakia</td></tr>
-      <tr><td>Contact</td><td><a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a></td></tr>
-    </table>
-  </header>
+<div class="legal-page">
+  <article class="legal-card">
+    <header class="legal-header">
+      <p class="legal-kicker">Guesser Space Legal</p>
+      <h1 class="legal-title">Terms of Use</h1>
+      <p class="legal-subtitle">
+        These Terms describe the rules that apply when you use Guesser Space, including subscriptions,
+        referrals, rankings, acceptable use, and legal limitations.
+      </p>
+      <div class="legal-meta">
+        <div>
+          <strong>Effective Date</strong>
+          <span>April 10, 2026</span>
+        </div>
+        <div>
+          <strong>Developer</strong>
+          <span>Apakhian Games</span>
+        </div>
+        <div>
+          <strong>Contact</strong>
+          <span><a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a></span>
+        </div>
+      </div>
+    </header>
 
-  <section>
-    <h2>1. Acceptance of Terms</h2>
-    <div class="info-box">
-      <p>By downloading, installing, or using Guesser Space (the "Application"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, do not download or use the Application. These Terms constitute a legally binding agreement between you and Apakhian Games.</p>
-    </div>
-  </section>
+    <nav class="legal-toc" aria-label="Table of contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#acceptance">Acceptance of Terms</a></li>
+        <li><a href="#about-app">About the App</a></li>
+        <li><a href="#accounts">Eligibility and Accounts</a></li>
+        <li><a href="#trials">Trials, Promotional Access, and Referrals</a></li>
+        <li><a href="#subscriptions">Subscriptions</a></li>
+        <li><a href="#leaderboards">Leaderboards, Scores, and Player Names</a></li>
+        <li><a href="#acceptable-use">Acceptable Use</a></li>
+        <li><a href="#ip">Intellectual Property</a></li>
+        <li><a href="#third-party">Third-Party Services</a></li>
+        <li><a href="#warranties">Disclaimer of Warranties</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#termination">Suspension and Termination</a></li>
+        <li><a href="#changes">Changes to the App and Terms</a></li>
+        <li><a href="#law">Governing Law</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
 
-  <section>
-    <h2>2. Description of the Application</h2>
-    <p>Guesser Space is a brain-training application offering daily and unlimited games across the following categories:</p>
-    <div class="table-wrap">
-      <table class="game-table">
-        <thead><tr><th>Category</th><th>Games</th></tr></thead>
-        <tbody>
-          <tr><td>Geography</td><td>Country Guesser, Capital Guesser, Flag Blitz</td></tr>
-          <tr><td>History</td><td>History Order, History Duel, Guess the Year</td></tr>
-          <tr><td>Logic &amp; Puzzles</td><td>Sudoku (Easy / Medium / Hard), Hamiltonian Path, Mastermind, Sequence, Make 24</td></tr>
-          <tr><td>Mathematics</td><td>Multiplication Sprint</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p>Game content and categories are subject to change. We reserve the right to add, modify, or remove games at any time.</p>
-  </section>
+    <section class="legal-section" id="acceptance">
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By downloading, installing, or using Guesser Space, you agree to these Terms of Use.
+        If you do not agree, do not use the app.
+      </p>
+    </section>
 
-  <section>
-    <h2>3. Accounts and Progress Backup</h2>
-    <p>Use of the Application does not require account registration. By default, your progress is stored locally on your device.</p>
-    <p>You may optionally link a Google account to back up your progress (XP, scores, display name) to our servers and restore it across devices or after reinstallation. By linking a Google account, you authorise us to store your leaderboard data in Firebase Cloud Firestore as described in our <a href="privacy.html">Privacy Policy</a>.</p>
-    <p>You may switch to a different Google account at any time. If the new account has no existing data, your current progress will be transferred to it. If the new account already has saved data, your current progress will not be overwritten and will remain on the previous account.</p>
-  </section>
+    <section class="legal-section" id="about-app">
+      <h2>2. About the App</h2>
+      <p>
+        Guesser Space is a brain-training and knowledge game app that may include daily or repeatable game modes such as:
+      </p>
+      <ul>
+        <li>geography games,</li>
+        <li>history games,</li>
+        <li>logic and puzzle games,</li>
+        <li>math and number games,</li>
+        <li>ranking and score-based challenge modes,</li>
+        <li>achievements, streaks, and referral or promotional rewards.</li>
+      </ul>
+      <p>Available game modes may change over time.</p>
+    </section>
 
-  <section>
-    <h2>4. Free Trial</h2>
-    <p>New users receive a <strong>7-day free trial</strong> granting full access to all Pro content. The trial begins on the date of first application launch. No payment information is required to start the trial. After the trial expires, access to Pro content is restricted until a subscription is purchased. Trial days may be extended through the referral programme described in section 6.</p>
-  </section>
+    <section class="legal-section" id="accounts">
+      <h2>3. Eligibility and Accounts</h2>
+      <p>
+        You may use the app without creating a traditional username and password account. The app may use
+        anonymous authentication, optional Google sign-in, and device-linked or account-linked identifiers
+        to operate features such as subscriptions, cloud rankings, and referral rewards.
+      </p>
+      <p>
+        You are responsible for maintaining access to the device and store account you use with the app.
+      </p>
+    </section>
 
-  <section>
-    <h2>5. Subscriptions</h2>
+    <section class="legal-section" id="trials">
+      <h2>4. Trials, Promotional Access, and Referrals</h2>
 
-    <h3>5.1 Available plans</h3>
-    <p>Guesser Space offers the following paid subscription plans, billed through Google Play:</p>
-    <ul>
-      <li><strong>Monthly</strong> — billed once per calendar month.</li>
-      <li><strong>Annual</strong> — billed once per year at a lower effective monthly rate.</li>
-    </ul>
-    <p>Exact pricing is displayed in the Application in your local currency at the time of purchase.</p>
+      <h3>4.1 Introductory or promotional access</h3>
+      <p>
+        The app may offer introductory trials, promotional access periods, referral bonuses, or promo-code
+        benefits. The availability, duration, and scope of those offers may vary by platform, store configuration,
+        promotion, jurisdiction, and account status.
+      </p>
+      <p>Where a trial or promotional benefit is shown in the app or store listing, that displayed information controls.</p>
 
-    <h3>5.2 Billing and automatic renewal</h3>
-    <p>Subscriptions renew automatically at the end of each billing period unless cancelled at least 24 hours before the renewal date. Your payment method on file with Google will be charged at the start of each billing period.</p>
+      <h3>4.2 Referral codes</h3>
+      <p>The app may provide each user with a referral code. Referral and promo benefits are subject to validation and anti-abuse checks.</p>
+      <ul>
+        <li>You may not redeem your own code.</li>
+        <li>You may not create or use multiple accounts or devices to manipulate rewards.</li>
+        <li>You may not use emulators, scripts, automation, or other abusive methods.</li>
+        <li>You may not attempt to reverse or bypass redemption limits.</li>
+      </ul>
+      <p>
+        We may deny, revoke, or adjust referral or promo benefits if we reasonably believe abuse, fraud,
+        or policy circumvention has occurred.
+      </p>
 
-    <h3>5.3 Managing or cancelling your subscription</h3>
-    <p>Google Play → Profile icon → Payments &amp; subscriptions → Subscriptions → Guesser Space</p>
-    <p>Cancellation takes effect at the end of the current billing period. Uninstalling the application does not cancel your subscription; you must cancel through Google Play.</p>
+      <h3>4.3 No cash value</h3>
+      <p>
+        Trials, referral rewards, promo codes, and other in-app benefits have no cash value, are non-transferable
+        unless we explicitly allow otherwise, and may be changed or discontinued at any time.
+      </p>
+    </section>
 
-    <h3>5.4 Refunds</h3>
-    <p>We do not offer refunds for partially unused subscription periods except where required by applicable law. All refund requests must be submitted directly to Google, as all payments are processed through Google Play. <a href="https://support.google.com/googleplay/answer/2479637" target="_blank">Google Play refund policy →</a></p>
-  </section>
+    <section class="legal-section" id="subscriptions">
+      <h2>5. Subscriptions</h2>
 
-  <section>
-    <h2>6. Referral Programme</h2>
+      <h3>5.1 Paid plans</h3>
+      <p>
+        Guesser Space may offer paid subscription plans such as monthly or annual subscriptions. Exact pricing,
+        billing period, and local currency are shown in the app and/or in the Apple App Store or Google Play purchase flow.
+      </p>
 
-    <h3>6.1 How it works</h3>
-    <p>Each user is assigned a unique referral code in the format <code>GS-XXXXXX</code>. When a new user enters your code during or after onboarding, both parties may receive additional free trial days or other benefits as described within the Application at the relevant time.</p>
+      <h3>5.2 Billing and renewal</h3>
+      <p>
+        Subscriptions are billed and managed by Apple or Google through their respective stores. Unless cancelled
+        in accordance with the store's rules, subscriptions may renew automatically at the end of the billing period.
+      </p>
 
-    <h3>6.2 Rules</h3>
-    <ul>
-      <li>You may not redeem your own referral code.</li>
-      <li>Each device may redeem a referral code only once.</li>
-      <li>Each code may be redeemed by a limited number of devices (the limit is displayed in the Application).</li>
-      <li>Referral rewards are non-transferable and have no monetary value.</li>
-    </ul>
+      <h3>5.3 Managing and cancelling</h3>
+      <p>
+        You can manage or cancel your subscription through your Apple App Store or Google Play account settings.
+        Uninstalling the app does not itself cancel an active subscription.
+      </p>
 
-    <h3>6.3 Abuse and enforcement</h3>
-    <p>We reserve the right to revoke referral codes and associated rewards if we detect abuse, including but not limited to use of emulators, automated tools, virtual devices, or multiple registrations intended to circumvent the one-redemption-per-device limit.</p>
+      <h3>5.4 Refunds</h3>
+      <p>
+        Refunds are handled by the app store provider that processed your purchase, except where applicable law requires otherwise.
+      </p>
+      <ul>
+        <li><a href="https://reportaproblem.apple.com">Apple refund requests</a></li>
+        <li><a href="https://support.google.com/googleplay/answer/2479637">Google Play refund policy</a></li>
+      </ul>
+    </section>
 
-    <h3>6.4 Promotional codes</h3>
-    <p>From time to time we may issue promotional codes granting extended trial periods or Pro access. Promotional codes are non-transferable, single-use or limited-use as stated, and may be withdrawn or modified at any time without notice.</p>
-  </section>
+    <section class="legal-section" id="leaderboards">
+      <h2>6. Leaderboards, Scores, and Player Names</h2>
+      <p>
+        If you use ranking or leaderboard features, the app may display your player name, score, XP, level,
+        or rank to you and, where applicable, relative to other players.
+      </p>
+      <div class="legal-note">
+        You are responsible for any nickname or player name you choose to use in the app.
+      </div>
+      <p>
+        You may not use names that are unlawful, abusive, deceptive, infringing, or intended to impersonate
+        another person or entity. We reserve the right to restrict or remove ranking-related content or access
+        where misuse is detected.
+      </p>
+    </section>
 
-  <section>
-    <h2>7. Acceptable Use</h2>
-    <p>You agree not to:</p>
-    <ul>
-      <li>Reverse-engineer, decompile, disassemble, or attempt to derive the source code of the Application.</li>
-      <li>Modify, adapt, translate, or create derivative works based on the Application.</li>
-      <li>Use the Application for any unlawful purpose or in violation of any applicable laws or regulations.</li>
-      <li>Attempt to gain unauthorised access to any part of the Application or its backend services.</li>
-      <li>Use automated scripts, bots, or other tools to interact with the Application in a manner not intended by its design.</li>
-      <li>Exploit bugs, errors, or vulnerabilities for personal gain — please report any discovered vulnerabilities to <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>.</li>
-    </ul>
-  </section>
+    <section class="legal-section" id="acceptable-use">
+      <h2>7. Acceptable Use</h2>
+      <ul>
+        <li>Do not reverse-engineer, decompile, or disassemble the app except where prohibited by law.</li>
+        <li>Do not interfere with or disrupt the app or its backend systems.</li>
+        <li>Do not use bots, scripts, or automation.</li>
+        <li>Do not exploit bugs or vulnerabilities.</li>
+        <li>Do not attempt unauthorized access to services, accounts, referrals, subscriptions, or score systems.</li>
+        <li>Do not use the app for unlawful, fraudulent, or abusive purposes.</li>
+      </ul>
+      <p>If you discover a vulnerability, please report it to <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>.</p>
+    </section>
 
-  <section>
-    <h2>8. Intellectual Property</h2>
-    <p>All content within the Application — including but not limited to game logic, puzzles, graphics, animations, sounds, text, and the "Guesser Space" name and branding — is owned by Apakhian Games or its licensors and is protected by applicable intellectual property laws.</p>
-    <p>Subject to your compliance with these Terms, you are granted a limited, non-exclusive, non-transferable, revocable licence to use the Application on your personal devices for personal, non-commercial purposes.</p>
+    <section class="legal-section" id="ip">
+      <h2>8. Intellectual Property</h2>
+      <p>
+        The app, including its software, design, gameplay systems, branding, text, visuals, and other content,
+        is owned by Apakhian Games and/or its licensors and is protected by applicable intellectual property laws.
+      </p>
+      <p>
+        You receive a limited, revocable, non-exclusive, non-transferable license to use the app for personal,
+        non-commercial use in accordance with these Terms.
+      </p>
+    </section>
 
-    <h3>8.1 Third-party data</h3>
-    <p>The history events database used in the History Order and History Duel games is made available under the <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank">Open Database License (ODbL) v1.0</a>. The database contents are licensed under the <a href="https://opendatacommons.org/licenses/dbcl/1-0/" target="_blank">Database Contents License (DbCL) v1.0</a>. These licences permit use in applications such as this one, subject to attribution requirements met within the Application.</p>
-  </section>
+    <section class="legal-section" id="third-party">
+      <h2>9. Third-Party Services</h2>
+      <p>
+        The app relies on third-party services, including Google Firebase, RevenueCat, Apple App Store, and Google Play.
+        Your use of those services may also be subject to their separate terms and policies.
+      </p>
+      <ul>
+        <li><a href="https://policies.google.com/terms">Google Terms</a></li>
+        <li><a href="https://www.revenuecat.com/terms">RevenueCat Terms</a></li>
+        <li><a href="https://www.apple.com/legal/internet-services/itunes/">Apple Media Services Terms</a></li>
+        <li><a href="https://play.google.com/about/play-terms/">Google Play Terms</a></li>
+      </ul>
+      <p>We are not responsible for third-party outages, policy changes, billing systems, or platform-level restrictions outside our reasonable control.</p>
+    </section>
 
-  <section>
-    <h2>9. User-Provided Content</h2>
-    <p>You may optionally choose a display name during onboarding. If you use the Application without linking a Google account, this name is stored only on your device. If you link a Google account, your chosen display name is also stored in Cloud Firestore to appear on the leaderboard. You retain full ownership of any display name you provide. You agree not to use display names that are offensive, infringing, or otherwise violate applicable law.</p>
-  </section>
+    <section class="legal-section" id="warranties">
+      <h2>10. Disclaimer of Warranties</h2>
+      <p>
+        The app is provided <strong>"as is"</strong> and <strong>"as available"</strong>, without warranties of any kind to the fullest extent permitted by law.
+      </p>
+      <ul>
+        <li>We do not guarantee that the app will always be uninterrupted or error-free.</li>
+        <li>We do not guarantee that every bug will be fixed.</li>
+        <li>We do not guarantee that all features will remain available forever.</li>
+        <li>We do not guarantee that subscription, referral, ranking, or cloud functions will always be available without interruption.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>10. Third-Party Services</h2>
-    <p>The Application integrates third-party services. Your use of those services is also subject to their respective terms and policies:</p>
-    <ul>
-      <li><a href="https://policies.google.com/terms" target="_blank">Google Terms of Service</a></li>
-      <li><a href="https://www.revenuecat.com/terms" target="_blank">RevenueCat Terms of Service</a></li>
-      <li><a href="https://play.google.com/about/play-terms/" target="_blank">Google Play Terms of Service</a></li>
-    </ul>
-  </section>
+    <section class="legal-section" id="liability">
+      <h2>11. Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, Apakhian Games and its affiliates, suppliers, licensors,
+        and service providers will not be liable for any indirect, incidental, special, consequential,
+        exemplary, or punitive damages, or for any loss of profits, revenue, data, goodwill, or business
+        opportunity arising from or related to your use of the app.
+      </p>
+      <p>Where liability cannot be excluded under applicable law, it is limited to the maximum extent permitted by that law.</p>
+    </section>
 
-  <section>
-    <h2>11. Disclaimer of Warranties</h2>
-    <div class="warning-box">
-      <p>The Application is provided on an <strong>"as is"</strong> and <strong>"as available"</strong> basis without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the Application will be uninterrupted, error-free, or free of harmful components, or that defects will be corrected.</p>
-    </div>
-  </section>
+    <section class="legal-section" id="termination">
+      <h2>12. Suspension and Termination</h2>
+      <p>
+        We may suspend, restrict, revoke, or terminate access to some or all app features if we reasonably
+        believe you have violated these Terms, abused the app, or created risk for other users, service providers,
+        or the integrity of the platform.
+      </p>
+      <p>You may stop using the app at any time by uninstalling it. This does not automatically cancel subscriptions billed through Apple or Google.</p>
+    </section>
 
-  <section>
-    <h2>12. Limitation of Liability</h2>
-    <p>To the fullest extent permitted by applicable law, Apakhian Games and its affiliates, officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, or goodwill — arising out of or in connection with your access to or use of, or inability to access or use, the Application, even if we have been advised of the possibility of such damages. In jurisdictions that do not allow certain exclusions or limitations of liability, our liability is limited to the greatest extent permitted by applicable law.</p>
-  </section>
+    <section class="legal-section" id="changes">
+      <h2>13. Changes to the App and Terms</h2>
+      <p>
+        We may modify the app, its features, prices, benefits, referral rules, subscription offerings, or these Terms from time to time.
+      </p>
+      <p>
+        If we update these Terms, we will update the effective date above. Continued use of the app after the updated Terms take effect means you accept the revised Terms.
+      </p>
+    </section>
 
-  <section>
-    <h2>13. Termination</h2>
-    <p>We reserve the right to suspend or terminate your access to the Application at any time, with or without notice, if we reasonably believe you have violated these Terms. You may discontinue use of the Application at any time by uninstalling it. Uninstalling the Application does not cancel any active subscription; cancellation must be performed through Google Play as described in section 5.3.</p>
-  </section>
+    <section class="legal-section" id="law">
+      <h2>14. Governing Law</h2>
+      <p>These Terms are governed by the laws of <strong>Slovakia</strong>, excluding conflict-of-law rules.</p>
+      <p>
+        If a dispute cannot be resolved informally, it will be subject to the jurisdiction of the competent courts of
+        <strong>Slovakia</strong>, unless mandatory consumer protection laws provide otherwise.
+      </p>
+    </section>
 
-  <section>
-    <h2>14. Changes to These Terms</h2>
-    <p>We may modify these Terms from time to time. Material changes will be indicated by an updated effective date on this page. Continued use of the Application after the updated Terms take effect constitutes your acceptance of the revised Terms. We recommend reviewing this page periodically.</p>
-  </section>
-
-  <section>
-    <h2>15. Governing Law and Dispute Resolution</h2>
-    <p>These Terms are governed by and construed in accordance with the laws of the <strong>Slovak Republic</strong>, without regard to its conflict of law provisions. Any disputes arising out of or in connection with these Terms or the Application shall be subject to the exclusive jurisdiction of the competent courts of the Slovak Republic, unless otherwise required by applicable mandatory consumer protection laws in your country of residence.</p>
-  </section>
-
-  <hr class="divider">
-
-  <section>
-    <h2>Contact</h2>
-    <div class="contact-box">
-      <p>For questions or notices regarding these Terms of Use, please contact:</p>
-      <p><strong>Apakhian Games</strong><br>
-      Email: <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2026 Apakhian Games &nbsp;·&nbsp; Guesser Space</p>
-    <p style="margin-top:6px;">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-    </p>
-  </footer>
-
+    <section class="legal-section" id="contact">
+      <h2>15. Contact</h2>
+      <p>
+        Questions about these Terms can be sent to
+        <a href="mailto:mdieska1@gmail.com">mdieska1@gmail.com</a>.
+      </p>
+    </section>
+  </article>
 </div>
-</body>
-</html>
