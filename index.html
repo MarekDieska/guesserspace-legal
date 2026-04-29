@@ -13,11 +13,12 @@ permalink: /
     --card: rgba(255, 255, 255, 0.08);
     --border: rgba(255, 255, 255, 0.14);
     --text: #f7f8fc;
-    --muted: #bfcae3;
+    --muted: #d6e1f5;
     --accent: #ff9c6b;
     --accent-2: #7fc7ff;
     --accent-3: #ff5f8f;
     --success: #85f1c7;
+    --link: #eef5ff;
     --shadow: 0 22px 60px rgba(2, 6, 23, 0.36);
   }
 
@@ -28,6 +29,10 @@ permalink: /
       radial-gradient(circle at top left, rgba(255, 95, 143, 0.18), transparent 28%),
       radial-gradient(circle at top right, rgba(127, 199, 255, 0.2), transparent 30%),
       linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 58%, #040914 100%);
+  }
+
+  a {
+    color: var(--link);
   }
 
   .home-page {
@@ -128,7 +133,7 @@ permalink: /
   }
 
   .nav-links a {
-    color: var(--muted);
+    color: #e8f0ff;
     text-decoration: none;
     font-weight: 600;
   }
@@ -171,10 +176,10 @@ permalink: /
 
   .hero-copy p {
     margin: 0;
-    max-width: 620px;
+    max-width: 560px;
     color: var(--muted);
-    font-size: 1.08rem;
-    line-height: 1.7;
+    font-size: 1.02rem;
+    line-height: 1.65;
   }
 
   .hero-actions {
@@ -261,7 +266,7 @@ permalink: /
   .panel-copy {
     margin: 0;
     color: var(--muted);
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
   .mini-grid {
@@ -286,8 +291,8 @@ permalink: /
 
   .mini-card span {
     color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.55;
+    font-size: 0.94rem;
+    line-height: 1.5;
   }
 
   .section {
@@ -311,8 +316,8 @@ permalink: /
   .section-head p {
     margin: 0;
     color: var(--muted);
-    font-size: 1.04rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.6;
   }
 
   .feature-grid {
@@ -338,7 +343,7 @@ permalink: /
   .feature-card p {
     margin: 0;
     color: var(--muted);
-    line-height: 1.65;
+    line-height: 1.55;
   }
 
   .highlight-band {
@@ -366,7 +371,7 @@ permalink: /
   .info-card p,
   .info-card li {
     color: var(--muted);
-    line-height: 1.7;
+    line-height: 1.6;
   }
 
   .info-card ul {
@@ -389,10 +394,10 @@ permalink: /
   }
 
   .footer-card p {
-    max-width: 720px;
+    max-width: 640px;
     margin: 0 auto;
     color: var(--muted);
-    line-height: 1.7;
+    line-height: 1.6;
   }
 
   .footer-links {
@@ -453,9 +458,9 @@ permalink: /
 <div class="home-page">
   <section class="hero-shell">
     <nav class="site-nav" aria-label="Main">
-      <a class="brand" href="{{ '/' | relative_url }}">
+      <a class="brand" href="index.html">
         <span class="brand-mark">
-          <img src="{{ '/logo.png' | relative_url }}" alt="Guesser Space logo">
+          <img src="logo.png" alt="Guesser Space logo">
         </span>
         <span class="brand-copy">
           <strong>Guesser Space</strong>
@@ -465,23 +470,22 @@ permalink: /
       <div class="nav-links">
         <a href="#games">Games</a>
         <a href="#why">Why Guesser Space</a>
-        <a href="{{ '/privacy' | relative_url }}">Privacy</a>
-        <a href="{{ '/terms' | relative_url }}">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
       </div>
     </nav>
 
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Daily brain training for curious minds</span>
-        <h1>Challenge your memory, logic, history, geography, and speed in one universe.</h1>
+        <span class="eyebrow">Official app homepage</span>
+        <h1>Brain games for memory, logic, history, and geography.</h1>
         <p>
-          Guesser Space turns learning into a fast, colorful routine with bite-sized challenges,
-          progression-friendly difficulty, and a growing library of games designed to keep your
-          mind moving.
+          Guesser Space is a mobile app with short, space-themed learning games designed for quick,
+          focused play.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="#games">Explore the games</a>
-          <a class="button button-secondary" href="{{ '/privacy' | relative_url }}">View privacy policy</a>
+          <a class="button button-secondary" href="privacy.html">View privacy policy</a>
         </div>
         <div class="hero-meta">
           <span>Geography</span>
@@ -493,28 +497,27 @@ permalink: /
       </div>
 
       <aside class="hero-panel" aria-label="Highlights">
-        <span class="panel-badge">What you can expect</span>
-        <h2 class="panel-title">A focused, game-first learning app for short sessions that still feel rewarding.</h2>
+        <span class="panel-badge">At a glance</span>
+        <h2 class="panel-title">Fast sessions. Clear goals. Lots of variety.</h2>
         <p class="panel-copy">
-          Whether you want a two-minute warmup or a longer streak session, Guesser Space is built
-          to make knowledge feel active, quick, and satisfying.
+          Built for short play sessions, with multiple categories and simple progression.
         </p>
         <div class="mini-grid">
           <div class="mini-card">
             <strong>Quick rounds</strong>
-            <span>Easy to pick up for a commute, break, or daily challenge habit.</span>
+            <span>Easy to play in a few minutes.</span>
           </div>
           <div class="mini-card">
-            <strong>Varied categories</strong>
-            <span>Switch between capitals, timelines, sequences, memory modes, and more.</span>
+            <strong>Multiple categories</strong>
+            <span>Geography, history, numbers, memory, and logic.</span>
           </div>
           <div class="mini-card">
-            <strong>Skill progression</strong>
-            <span>Build recall, pattern recognition, and speed through repeat play.</span>
+            <strong>Replayable</strong>
+            <span>Made for repeat practice and improvement.</span>
           </div>
           <div class="mini-card">
-            <strong>Designed for curiosity</strong>
-            <span>Made for players who enjoy learning while they compete with themselves.</span>
+            <strong>Space-themed</strong>
+            <span>A playful visual style built around the app brand.</span>
           </div>
         </div>
       </aside>
@@ -523,37 +526,34 @@ permalink: /
 
   <section class="section" id="games">
     <div class="section-head">
-      <h2>A whole constellation of mini games</h2>
-      <p>
-        Guesser Space combines educational and puzzle-based play, so you can bounce between knowledge,
-        memory, and logic without the experience feeling repetitive.
-      </p>
+      <h2>Game categories</h2>
+      <p>Guesser Space combines educational and puzzle-based mini games in one app.</p>
     </div>
 
     <div class="feature-grid">
       <article class="feature-card">
-        <strong>Geography and world knowledge</strong>
-        <p>Guess capitals, learn countries, and sharpen global awareness through quick recognition challenges.</p>
+        <strong>Geography</strong>
+        <p>Capitals, countries, and world knowledge.</p>
       </article>
       <article class="feature-card">
-        <strong>History and timelines</strong>
-        <p>Put events in order, duel against dates, and build a better sense of historical sequence.</p>
+        <strong>History</strong>
+        <p>Timelines, dates, and event ordering.</p>
       </article>
       <article class="feature-card">
-        <strong>Numbers and patterns</strong>
-        <p>Practice multiplication, number sequences, and problem-solving with fast, repeatable rounds.</p>
+        <strong>Numbers</strong>
+        <p>Sequences, multiplication, and pattern play.</p>
       </article>
       <article class="feature-card">
-        <strong>Memory modes</strong>
-        <p>Train focus and recall with visual matching, flips, and solar-themed memory challenges.</p>
+        <strong>Memory</strong>
+        <p>Matching, recall, and visual focus games.</p>
       </article>
       <article class="feature-card">
-        <strong>Logic and puzzles</strong>
-        <p>Work through Sudoku, mastermind-style deduction, and other puzzles that reward careful thinking.</p>
+        <strong>Logic</strong>
+        <p>Puzzles such as Sudoku and deduction games.</p>
       </article>
       <article class="feature-card">
-        <strong>Short-session friendly</strong>
-        <p>Every mode is designed to work well in brief sessions while still supporting longer streaks.</p>
+        <strong>Short sessions</strong>
+        <p>Designed to fit quick daily play.</p>
       </article>
     </div>
   </section>
@@ -561,24 +561,19 @@ permalink: /
   <section class="section" id="why">
     <div class="highlight-band">
       <div class="highlight-card">
-        <h3>Why people use Guesser Space</h3>
+        <h3>About the app</h3>
         <p>
-          Some players come for learning, some for competition, and some simply want a better use
-          of idle phone time. Guesser Space sits in the middle of those needs by making practice
-          feel energetic instead of academic.
-        </p>
-        <p>
-          The result is a space-inspired experience that feels approachable for casual players while
-          still giving repeat users enough variety to stay engaged.
+          This is the official homepage for Guesser Space, a mobile app focused on educational games,
+          puzzles, and brain-training activities.
         </p>
       </div>
 
       <div class="info-card">
         <h3>Application information</h3>
-        <p>This page is the official home page for the Guesser Space application.</p>
+        <p>Public links for app review and account verification.</p>
         <ul>
-          <li>Privacy policy: <a href="{{ '/privacy' | relative_url }}">/privacy</a></li>
-          <li>Terms of use: <a href="{{ '/terms' | relative_url }}">/terms</a></li>
+          <li>Privacy policy: <a href="privacy.html">privacy.html</a></li>
+          <li>Terms of use: <a href="terms.html">terms.html</a></li>
           <li>Brand: Guesser Space</li>
           <li>Purpose: educational games, puzzles, and brain-training activities</li>
         </ul>
@@ -588,14 +583,13 @@ permalink: /
 
   <section class="section">
     <div class="footer-card">
-      <h2>Explore the universe of Guesser Space</h2>
+      <h2>Official links</h2>
       <p>
-        If you are reviewing the app, signing in, or looking for public information about the
-        product, this page and the legal documents linked below are the official references.
+        This page, the privacy policy, and the terms of use are the official public references for Guesser Space.
       </p>
       <div class="footer-links">
-        <a href="{{ '/privacy' | relative_url }}">Privacy Policy</a>
-        <a href="{{ '/terms' | relative_url }}">Terms of Use</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
       </div>
     </div>
   </section>
